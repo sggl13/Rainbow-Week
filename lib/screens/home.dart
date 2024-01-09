@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/news_list.dart';
 import '../widgets/task_dialogue.dart';
 import '../widgets/completed_list.dart';
 import '../widgets/rainbow_text.dart';
@@ -21,6 +22,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     // Screens to display based on the selected index
     final screens = [
+      NewsList(),
       TaskList(), // Screen for the list of tasks
       CompletedList(), // Screen for the list of completed tasks
     ];
@@ -48,6 +50,10 @@ class _HomeState extends State<Home> {
         currentIndex: _currentIndex,
         onTap: (index) => setState(() {_currentIndex = index;}),
         items: const [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.newspaper, size: 20,),
+              label: 'News'
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.list, size: 20,),
             label: 'To-Do'
